@@ -1,0 +1,160 @@
+<div class="main-wrapper" fxLayout="row" fxLayoutAlign="center center" *ngIf="isEdit == null">
+  <mat-card class="box" style="background-color:#f5f5dc !important">
+
+    <mat-card-title>
+      <h1 style="text-align: center;color: #0000FF">Student Registration Form</h1>
+    </mat-card-title>
+
+    <mat-card-content>
+      <form class="example-form">
+        <table class="example-full-width" cellspacing="0">
+          <tr>
+            <td>
+              <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Roll Number</mat-label>
+                <input matInput [(ngModel)]="student.rollNo" name="Roll Number" required>
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Name</mat-label>
+                <input matInput [(ngModel)]="student.name" name="name" required>
+              </mat-form-field>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Date Of Birth</mat-label>
+                <input matInput [matDatepicker]="dp" [(ngModel)]="student.dob" name="date" required>
+                <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
+                <mat-datepicker #dp></mat-datepicker>
+              </mat-form-field>
+            </td>
+
+            <td>
+              <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Marks</mat-label>
+                <input matInput placeholder="marks" [(ngModel)]="student.marks" name="marks" required>
+              </mat-form-field>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Email</mat-label>
+                <input type="email" matInput placeholder="Ex. pat@example.com" [(ngModel)]="student.email" name="email" required>
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>PhoneNumber</mat-label>
+                <input matInput #phoneNumber maxlength="10" placeholder="Ex. 9874563210" value=""
+                  [(ngModel)]="student.phoneNumber" name="phone Number" required>
+                <mat-hint align="end">{{phoneNumber.value.length}} / 10</mat-hint>
+              </mat-form-field>
+            </td>
+          </tr>
+          <tr>
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Address</mat-label>
+              <textarea matInput #address maxlength="64" placeholder="Ex. I need help with..."
+                [(ngModel)]="student.address" name="address" required></textarea>
+              <mat-hint align="start"><strong>Don't disclose personal info</strong> </mat-hint>
+              <mat-hint align="end">{{address.value.length}} / 64</mat-hint>
+            </mat-form-field>
+          </tr>
+        </table>
+
+      </form>
+    </mat-card-content>
+
+    <mat-card-footer>
+      <button type="submit" mat-raised-button color="primary" (click)="register(student)">Submit</button>
+    </mat-card-footer>
+
+  </mat-card>
+
+</div>
+
+
+<div class="main-wrapper" fxLayout="row" fxLayoutAlign="center center" *ngIf="isEdit != null">
+  <mat-card class="box" style="background-color:#FDAC53 !important">
+
+    <mat-card-title>
+      <h1 style="text-align: center;color: #34568B">Edit Student</h1>
+    </mat-card-title>
+
+    <mat-card-content>
+      <form class="example-form">
+        <table class="example-full-width" cellspacing="0">
+          <tr>
+            <td>
+              <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Roll Number</mat-label>
+                <input matInput [(ngModel)]="student.rollNo" name="Roll Number" required>
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Name</mat-label>
+                <input matInput [(ngModel)]="student.name" name="name" required>
+              </mat-form-field>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Date Of Birth</mat-label>
+                <input matInput [matDatepicker]="dp" [(ngModel)]="student.dob" name="date" required>
+                <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
+                <mat-datepicker #dp></mat-datepicker>
+              </mat-form-field>
+            </td>
+
+            <td>
+              <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Marks</mat-label>
+                <input matInput placeholder="marks" [(ngModel)]="student.marks" name="marks" required>
+              </mat-form-field>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Email</mat-label>
+                <input type="email" matInput placeholder="Ex. pat@example.com" [(ngModel)]="student.email" name="email" required>
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>PhoneNumber</mat-label>
+                <input matInput #phoneNumber maxlength="10" placeholder="Ex. 9874563210" value=""
+                  [(ngModel)]="student.phoneNumber" name="phone Number" required>
+                <mat-hint align="end">{{phoneNumber.value.length}} / 10</mat-hint>
+              </mat-form-field>
+            </td>
+          </tr>
+          <tr>
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Address</mat-label>
+              <textarea matInput #address maxlength="64" placeholder="Ex. I need help with..."
+                [(ngModel)]="student.address" name="address" required></textarea>
+              <mat-hint align="start"><strong>Don't disclose personal info</strong> </mat-hint>
+              <mat-hint align="end">{{address.value.length}} / 64</mat-hint>
+            </mat-form-field>
+          </tr>
+        </table>
+
+      </form>
+    </mat-card-content>
+
+    <mat-card-footer>
+      <button type="submit" mat-raised-button color="primary" (click)="update(student)">Update</button>
+    </mat-card-footer>
+
+  </mat-card>
+
+</div>
